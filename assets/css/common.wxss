@@ -1,4 +1,4 @@
-.small_border {
+/* .small_border::after {
   content: '';
   position: absolute;
   top: 0;
@@ -10,10 +10,10 @@
   border: 0px solid rgba(0, 0, 0, 0.1);
   transform-origin: left top;
   z-index: 2;
-}
+} */
 
 @media screen and (-webkit-min-device-pixel-ratio: 1) {
-  .small_border {
+  .small_line {
     width: 150%;
     height: 150%;
     transform: scale(0.666666);
@@ -21,7 +21,7 @@
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 2) {
-  .small_border {
+  .small_line {
     width: 200%;
     height: 200%;
     transform: scale(0.5);
@@ -29,7 +29,7 @@
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 3) {
-  .small_border {
+  .small_line {
     width: 300%;
     height: 300%;
     transform: scale(0.333333);

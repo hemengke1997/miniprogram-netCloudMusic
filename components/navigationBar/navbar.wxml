@@ -1,0 +1,16 @@
+<view class="nav_wrap" style="height: {{ navbarHeight }}px">
+  <view class="nav_title" style="top: {{ statusBarHeight }}px">
+    {{ title }}
+  </view>
+  <view class="capsule_wrap">
+    <view class="nav_capsule" style="height: {{ capsuleData.height }}px;width: {{ capsuleData.width }}px;top:{{ capsuleData.top }}px;left:{{ capsuleData.left }}px" wx:if="{{ showCapsule }}">
+      <view bindtap="goBack" class="cap">
+        <icon class="iconfont icon-fanhui" ></icon>
+      </view>
+      <view class="small_line"></view>
+      <view bindtap="goHome" class="cap">
+        <icon class="iconfont icon-zhuye"></icon>
+      </view>
+    </view>
+  </view>
+</view>

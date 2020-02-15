@@ -1,5 +1,6 @@
 /**app.wxss**/
 @import './assets/font/iconfont.wxss';
+@import './assets/css/common.wxss';
 
 page {
   background-size: 100% 100%;
@@ -15,3 +16,8 @@ page {
   justify-content: space-between;
   box-sizing: border-box;
 } 
+
+iamge {
+  width: 0;
+  height: 0;
+}

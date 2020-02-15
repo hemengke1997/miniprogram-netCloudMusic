@@ -1,0 +1,152 @@
+.search {
+  margin: 0 20rpx 20rpx;
+}
+
+.inputcover {
+  position: relative;
+  height: 60rpx;
+  padding: 0 60rpx;
+  background: rgba(248, 248, 248);
+  border-radius: 30px;
+}
+
+.icon-sousuo-absolute {
+  position: absolute;
+  left: 0;
+  top: -6rpx;
+  margin: 0 16rpx;
+  vertical-align: middle;
+  color: #c9c9c9;
+  font-size: 24rpx;
+}
+
+.icon-guanbi {
+  position: absolute;
+  right: 0;
+  top: -6rpx;
+  margin-right: 10rpx;
+  padding: 0 6rpx;
+  color: #c9c9c9;
+  font-size: 24rpx;
+}
+
+.search_all {
+  width: 100%;
+  height: 60rpx;
+  line-height: 36rpx;
+  background: transparent;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.placeholder_class {
+  font-size: 28rpx;
+  color: #c9c9c9;
+}
+
+.history {
+  margin-top: 20rpx;
+}
+
+.h_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.h_title {
+  font-size: 24rpx;
+  font-weight: 700;
+}
+
+.icon-guanbi- {
+  font-size: 24rpx;
+  position: relative;
+  top: -8rpx;
+}
+
+.hot_title {
+  font-size: 24rpx;
+  margin: 20rpx;
+  font-weight: 700;
+  display: block;
+}
+
+.hot_item {
+  display: flex;
+  margin-bottom: 40rpx;
+}
+
+.num {
+  width: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+}
+
+.num.red {
+  color: #df3436;
+}
+
+.right_part {
+  display: flex;
+  justify-content: space-between;
+  flex: 1 1 auto;
+  align-items: center;
+}
+
+.middle {
+  display: flex;
+  flex-direction: column;
+}
+
+.songName {
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.songIcon.arrowUp {
+  width: 20rpx;
+}
+
+.songIcon.hotIcon {
+  width: 30rpx;
+}
+
+.songIcon {
+  margin: 0 6rpx;
+  width: 28rpx;
+}
+
+.songInfo {
+  font-size: 24rpx;
+  color: #c9c9c9;
+}
+
+.searchNum {
+  color: #c9c9c9;
+  font-size: 28rpx;
+}
+
+.search_sug {
+  font-size: 28rpx;
+  color: rgb(111, 111, 111);
+  margin-top: 20rpx;
+  border-top: 1px solid rgb(241, 241, 241);
+  padding: 0 16rpx;
+}
+
+.search_blue {
+  color: rgb(92, 115, 150);
+  padding: 20rpx 0;
+  display: block;
+}
+
+.icon-sousuo1 {
+  font-size: 24rpx;
+}
+
+.sug_item {
+  margin-left: 18rpx;
+}

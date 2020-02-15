@@ -1,0 +1,4 @@
+/* 浅灰色 */
+.lightgray {
+  color: #c9c9c9;
+}

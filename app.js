@@ -1,45 +1,59 @@
 //app.js
 App({
-  onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
-            }
-          })
+  // 获取设备顶部窗口高度
+  getStatusBarHeight() {
+    let systemInfo = wx.getSystemInfoSync()
+    let statusBarHeight = systemInfo.statusBarHeight
+    let rect = wx.getMenuButtonBoundingClientRect() ? wx.getMenuButtonBoundingClientRect() : null
+    let navbarHeight = 0
+    if(rect) {
+      navbarHeight = (function () {
+        let gap = rect.top - statusBarHeight
+        return 2 * gap + rect.height + statusBarHeight
+      })()
+      
+    } else {
+      let platform = systemInfo.platform
+      let gap = ''
+      let width = 96  //胶囊的宽度，android大部分96，ios为88
+      if (platform === 'android') {
+        gap = 8
+        width = 96
+      } else if (platform === 'devtools') {
+        if(ios) {
+          gap = 5.5  //开发工具中ios手机
+        } else {
+          gap = 7.5  //开发工具中android和其他手机
         }
+      } else {
+        gap = 4
+        width = 88
       }
-    })
+      //获取不到胶囊信息就自定义重置一个
+      rect = {
+        bottom: systemInfo.statusBarHeight + gap + 32,
+        height: 32,
+        left: systemInfo.windowWidth - width - 10,
+        right: systemInfo.windowWidth - 10,
+        top: systemInfo.statusBarHeight + gap,
+        width: width
+      }
+    }
+    if(!statusBarHeight) {
+      // 开启wifi的情况下修复statusBarHeight值获取不到
+      statusBarHeight = systemInfo.screenHeight - systemInfo.windowHeight - 20
+    }
+    this.globalData.navbarHeight = navbarHeight
+    this.globalData.statusBarHeight = statusBarHeight
+    this.globalData.capsuleData = rect
+  },
+  onLaunch: function () {
+    this.getStatusBarHeight()
+    console.log(this.globalData.capsuleData)
   },
   globalData: {
-    userInfo: null
+    navbarHeight: 0,
+    statusBarHeight: 0,
+    capsuleData: {}
   }
 })
-
-//  hmk
-
-{
-
-}

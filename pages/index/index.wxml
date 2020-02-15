@@ -1,19 +1,17 @@
 <view class="search">
-  <view class="inputcover">
+  <view class="inputcover" bindtap="gotoSearch">
     <i class="iconfont icon-sousuo"></i>
     <input type="text" name="search" class="search_all" placeholder="搜索歌曲" placeholder-class="placeholder_class" disabled></input>
   </view>
   <view class="bangdan">
     <!-- 飙升榜 -->
-    <view class="bsb bd_item" wx:for="{{bangdan}}" wx:for-index="index" wx:for-item="item" wx:key="index">
+    <view class="bsb bd_item" wx:for="{{ bangdan }}" wx:for-index="index" wx:for-item="item" wx:key="index" bindtap="gotoSongs" data-id="{{ item.id }}">
       <view class="left_type">
-        <image src="{{item.imgSrc}}" class="type_img" mode="widthFix"></image>
-        <text class="type_intro">每天更新</text>
+        <image src="{{ item.coverImgUrl }}" class="type_img" mode="widthFix"></image>
+        <text class="type_intro">{{ item.updateFrequency }}</text>
       </view>
       <view class="right_songs">
-        <text>1.这就是爱吗 - 事都</text>
-        <text>2.句号 - GEM邓紫棋</text>
-        <text>3.勇气 - 棉子</text>
+        <text class="song_intro" wx:for="{{ item.tracks }}" wx:for-index="index" wx:for-item="item" wx:key="index">{{ index + 1 }}. {{ item.first }} - {{ item.second }}</text>
       </view>
     </view>
   </view>

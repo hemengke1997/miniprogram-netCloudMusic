@@ -1,0 +1,39 @@
+<view class="search">
+  <view class="inputcover">
+    <icon class="iconfont icon-sousuo icon-sousuo-absolute"></icon>
+    <input type="text" name="search" value="{{searchValue}}" class="search_all" placeholder="搜索歌曲" placeholder-class="placeholder_class" focus="true" confirm-type="search" bindinput="inputSearchValue"></input>
+    <icon class="iconfont icon-guanbi" wx:if="{{searchValue}}" bindtap="clearSearchValue"></icon>
+  </view>
+  <view class="history" wx:if="{{searchHistory}}">
+    <view class="h_top">
+      <text class="h_title">历史记录</text>
+      <icon class="iconfont icon-guanbi-"></icon>
+    </view>
+    <!-- 历史记录在后面存储功能完成之后写 -->
+  </view>
+  <!-- 热搜榜 -->
+  <view hidden="{{ searchValue }}">
+    <text class="hot_title">热搜榜</text>
+    <view class="hot_item" wx:for="{{ hotSongs }}" wx:key="index">
+      <text class="num {{ index < 3 ? 'red' : '' }}">{{ index + 1 }}</text>
+      <view class="right_part">
+        <view class="middle">
+          <view>
+            <text class="songName">{{ item.searchWord }}</text>
+            <image class="songIcon {{ item.iconType === 5 ? 'arrowUp' : '' }} {{ item.iconType === 1 ? 'hotIcon' : '' }} {{ item.iconType === 2 ? 'hotIcon' : ''}}" src="{{ item.iconUrl }}" mode="widthFix" wx:if="{{ item.iconUrl }}"></image>
+          </view>
+          <text class="songInfo">{{ item.content }}</text>
+        </view>
+        <text class="searchNum">{{ item.score }}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 搜索建议 -->
+  <view class="search_sug" wx:if="{{ searchValue }}">
+    <text class="search_blue">搜索“{{ searchValue }}”</text>
+    <view wx:for="{{ searchSug }}" wx:key="index">
+      <icon class="iconfont icon-sousuo icon-sousuo1"></icon>
+      <text class="sug_item">{{ item.keyword }}</text>
+    </view>
+  </view>
+</view>

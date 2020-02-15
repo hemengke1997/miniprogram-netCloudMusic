@@ -1,0 +1,52 @@
+@import '/assets/font/iconfont.wxss';
+@import '/assets/css/common.wxss';
+
+.nav_wrap {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: transparent;
+  color: #000;
+  z-index: 999;
+}
+
+.nav_title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+  max-width: 400rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 36rpx;
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav_capsule {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  position: absolute;
+  border: 1px solid transparent;
+  border-radius: 18px;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  padding: 6px 10px;
+}
+
+.small_line {
+  width: 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.icon-zhuye, .icon-fanhui {
+  font-size: 46rpx;
+  transform: translateY(1px);
+}

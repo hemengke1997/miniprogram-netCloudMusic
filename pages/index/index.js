@@ -2,28 +2,36 @@ const baseURL = require('../../utils/baseURL/baseURL.js')
 
 Page({
   data: {
-    bangdan: [{
-      imgSrc: '../../assets/imgs/bsb.jpg'
-    }, {
-      imgSrc: '../../assets/imgs/xgb.jpg'
-    }, {
-      imgSrc: '../../assets/imgs/rgb.jpg'
-    }, {
-      imgSrc: '../../assets/imgs/ycb.jpg'
-    }]
+    bangdan: []
   },
-  // 获取飙升榜
-  getBsb() {
+  // 获取四个榜单
+  getBillBoard() {
+    let _this = this
     wx.request({
       url: baseURL + 'toplist/detail',
       method: 'GET',
       success: function(res) {
-        console.log(res,'res')
+        let data = res.data.list.slice(0, 4)
+        _this.setData({
+          bangdan: data
+        })
       }
     })
   },
-  onLoad() {
-    this.getBsb()
+  gotoSearch() {
+    wx.navigateTo({
+      url: '../search/search'
+    })
   },
-
+  // 点击歌单跳转
+  gotoSongs(e) {
+    let id = e.currentTarget.dataset.id
+    // 先跳转
+    wx.navigateTo({
+      url: `../billboard/billboard?id=${id}`,
+    })
+  },
+  onLoad() {
+    this.getBillBoard()
+  }
 })

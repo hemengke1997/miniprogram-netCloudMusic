@@ -1,0 +1,186 @@
+.header {
+  position: relative;
+  padding: 60rpx 20rpx 170rpx 30rpx;
+}
+
+.billboard {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(40rpx);
+  transform: scale(1.5);
+  background-position: 50%;
+  z-index: -1;
+}
+
+.billboard::after {
+  content: "";
+  background: rgba(0, 0, 0, 0.25);
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.plhead_wrap {
+  display: flex;
+  position: relative;
+  z-index: 2;
+}
+
+.plhead_left {
+  position: relative;
+}
+
+.cover_img {
+  width: 300rpx;
+  border-radius: 12px;
+  position: relative;
+  display: block;
+}
+
+.listen_num {
+  position: absolute;
+  right: 14rpx;
+  top: -18rpx;
+  z-index: 3;
+  padding-left: 30rpx;
+  color: #fff;
+  text-shadow: 1px 0 0 rgba(0, 0, 0, 0.15);
+  vertical-align: middle;
+}
+
+.icon-erji {
+  font-size: 28rpx;
+}
+
+.count {
+  font-size: 24rpx;
+}
+
+.plhead_right {
+  flex: auto;
+  width: 1%;
+  -webkit-box-flex: 1;
+  margin-left: 32rpx;
+}
+
+.title {
+  padding-top: 2rpx;
+  font-size: 34rpx;
+  color: #fefefe;
+  -webkit-box-pack: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.auth {
+  position: relative;
+  margin: 20rpx 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: normal;
+}
+
+.auth_wrap {
+  display: inline-block;
+  color: hsla(0, 0%, 100%, 0.7);
+  font-size: 28rpx;
+}
+
+.auth_header {
+  display: inline-block;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 10rpx;
+  position: relative;
+}
+
+.auth_img {
+  border-radius: 50%;
+  width: 100%;
+}
+
+.auth_name {
+  color: rgb(229, 235, 243);
+  font-size: 28rpx;
+}
+
+.bb_intro {
+  font-size: 24rpx;
+  color: rgb(229, 235, 243);
+}
+
+.icon-fanhui {
+  font-size: 12px;
+  transform: rotate(180deg) translateY(-22rpx);
+  color: rgb(229, 235, 243);
+}
+
+.share {
+  position: absolute;
+  left: 50%;
+  bottom: 44rpx;
+  transform: translateX(-50%);
+  color: #fff;
+  padding: 12rpx 48rpx;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+  border-radius: 46px;
+  font-size: 28rpx;
+}
+
+.icon-jiaoyou {
+  font-size: 40rpx;
+  margin-right: 12rpx;
+}
+
+.songs {
+  background-color: #fff;
+  height: 400px;
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+  padding-top: 10rpx;
+}
+
+.icon-bofang {
+  font-size: 56rpx;
+  width: 80rpx;
+  display: inline-block;
+  text-align: center;
+  transform: translateY(6rpx);
+
+}
+
+.playall {
+  font-size: 32rpx;
+  display: inline-block;
+
+}
+
+.song_num {
+  display: inline-block;
+  font-size: 26rpx;
+  color: rgb(181, 181, 181);
+}

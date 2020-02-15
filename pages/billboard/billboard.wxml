@@ -1,0 +1,38 @@
+<nav-bar navbar-need="{{ navbar }}"></nav-bar>
+<view class="header" style="padding-top: {{ navbarHeight + 24}}px">
+  <view class="billboard" style="background-image: url('{{ playlist.coverImgUrl }}')">
+  </view>
+  <view class="plhead_wrap">
+    <view class="plhead_left">
+      <image src="{{ playlist.coverImgUrl }}" class="cover_img" mode="widthFix"></image>
+      <view class="listen_num">
+        <icon class="iconfont icon-erji"></icon>
+        <text class="count">58万</text>
+      </view>
+    </view>
+    <view class="plhead_right">
+      <text class="title">云音乐飙升榜</text>
+      <view class="auth">
+        <view class="auth_wrap">
+          <view class="auth_header">
+            <image class="auth_img" src="{{ playlist.creator.avatarUrl }}" mode="widthFix"></image>
+          </view>
+        </view>
+        <text class="auth_name">{{ playlist.creator.nickname }}</text>
+      </view>
+      <text class="bb_intro">{{ playlist.description }}</text>
+      <icon class="iconfont icon-fanhui"></icon>
+    </view>
+  </view>
+  <view class="share" bindtap="shareToFriend">
+    <icon class="iconfont icon-jiaoyou"></icon>
+    <text>分享给微信好友</text>
+  </view>
+</view>
+<view class="songs">
+  <view class="songs_header">
+    <icon class="iconfont icon-bofang"></icon>
+    <text class="playall">播放全部 </text>
+    <text class="song_num">(共100首)</text>
+  </view>
+</view>

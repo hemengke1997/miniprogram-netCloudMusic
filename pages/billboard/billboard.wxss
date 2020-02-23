@@ -1,22 +1,27 @@
+.main_wrap {
+  width: 100%;
+  min-height: 100%;
+  overflow-y: auto;
+}
+
 .header {
   position: relative;
-  padding: 60rpx 20rpx 170rpx 30rpx;
+  padding: 0rpx 20rpx 170rpx 30rpx;
 }
 
 .billboard {
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
   background-repeat: no-repeat;
-  background-size: cover;
-  filter: blur(40rpx);
-  transform: scale(1.5);
-  background-position: 50%;
-  z-index: -1;
+  filter: blur(1rpx);
+  background-position: center top;
+  background-size: 100% 300%;
+  z-index: -10;
 }
 
 .billboard::after {
@@ -42,7 +47,7 @@
 
 .cover_img {
   width: 300rpx;
-  border-radius: 12px;
+  border-radius: 24rpx;
   position: relative;
   display: block;
 }
@@ -123,32 +128,29 @@
 }
 
 .bb_intro {
-  font-size: 24rpx;
+  font-size: 20rpx;
   color: rgb(229, 235, 243);
-}
-
-.icon-fanhui {
-  font-size: 12px;
-  transform: rotate(180deg) translateY(-22rpx);
-  color: rgb(229, 235, 243);
+  display: inline-block;
 }
 
 .share {
   position: absolute;
+  font-weight: 400;
   left: 50%;
   bottom: 44rpx;
   transform: translateX(-50%);
   color: #fff;
-  padding: 12rpx 48rpx;
-  border: 1px solid transparent;
+  padding: 0 50rpx;
+  border: 1rpx solid transparent;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  align-items: center;
   background-color: rgba(255, 255, 255, 0.1);
   z-index: 1;
   border-radius: 46px;
   font-size: 28rpx;
+  height: 64rpx;
+  line-height: 64rpx;
 }
 
 .icon-jiaoyou {
@@ -158,10 +160,13 @@
 
 .songs {
   background-color: #fff;
-  height: 400px;
   width: 100%;
-  border-radius: 20px 20px 0 0;
+  border-radius: 40rpx;
   padding-top: 10rpx;
+}
+
+.songs_header {
+  padding: 10rpx 0 30rpx 0;
 }
 
 .icon-bofang {
@@ -170,13 +175,11 @@
   display: inline-block;
   text-align: center;
   transform: translateY(6rpx);
-
 }
 
 .playall {
   font-size: 32rpx;
   display: inline-block;
-
 }
 
 .song_num {

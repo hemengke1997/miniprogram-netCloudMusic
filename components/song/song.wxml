@@ -1,0 +1,17 @@
+<block wx:for="{{ songData.playlist }}" wx:key="index">
+  <view class="song" bindtap="gotoSong" data-songId="{{ item.id }}">
+    <text class="num" wx:if="{{ songData.showIndex }}">{{ index + 1 }}</text>
+    <view wx:else class="song_img" style="background-image: url('{{ item.song_img }}')"></view>
+    <view class="content">
+      <view class="song_middle">
+        <text class="song_name">{{ item.name }}</text>
+        <view class="song_info">
+          <icon class="iconfont icon-sq"></icon>
+          <text class="singer" space="ensp"> {{ item.ar[0].name }}</text>
+          <text class="album" space="ensp"> - {{ item.al.name }}</text>
+        </view>
+      </view>
+      <icon class="iconfont icon-bofang"></icon>
+    </view>
+  </view>
+</block>

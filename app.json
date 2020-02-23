@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/music/music",
     "pages/search/search",
     "pages/billboard/billboard"
   ],
@@ -10,7 +11,6 @@
     "navigationBarTitleText": "仿网易云音乐小程序",
     "navigationBarTextStyle": "black"
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json",
   "requiredBackgroundModes": [
     "audio"

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "song": "/components/song/song",
+    "nav-bar": "/components/navigationBar/navbar"
+  },
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "white"
+}

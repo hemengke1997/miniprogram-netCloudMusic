@@ -1,13 +1,28 @@
 .search {
-  margin: 0 20rpx 20rpx;
+  position: relative;
+}
+
+.input_wrap {
+  height: 80rpx;
+  background-color: #fff;
+  z-index: 9;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
 
 .inputcover {
-  position: relative;
   height: 60rpx;
   padding: 0 60rpx;
   background: rgba(248, 248, 248);
   border-radius: 30px;
+  position: fixed;
+  z-index: 1;
+  box-sizing: border-box;
+  left: 20rpx;
+  top: 0;
+  right: 20rpx;
 }
 
 .icon-sousuo-absolute {
@@ -18,6 +33,9 @@
   vertical-align: middle;
   color: #c9c9c9;
   font-size: 24rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .icon-guanbi {
@@ -45,13 +63,32 @@
 }
 
 .history {
-  margin-top: 20rpx;
+  margin-top: 100rpx;
+  margin: 100rpx 20rpx -40rpx 20rpx;
 }
 
 .h_top {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.history_wrap {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 24rpx;
+}
+
+.history_item {
+  display: inline-block;
+  margin: 20rpx 20rpx 0 0;
+  border-radius: 20rpx;
+  background-color: #c9c9c9;
+  padding: 6rpx 18rpx;
+}
+
+.content {
+  margin-top: 80rpx;
 }
 
 .h_title {
@@ -61,8 +98,11 @@
 
 .icon-guanbi- {
   font-size: 24rpx;
-  position: relative;
-  top: -8rpx;
+  width: 32rpx;
+  height: 32rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hot_title {
@@ -99,6 +139,8 @@
 .middle {
   display: flex;
   flex-direction: column;
+  flex: 1 1 auto;
+  width: 0;
 }
 
 .songName {
@@ -122,19 +164,23 @@
 .songInfo {
   font-size: 24rpx;
   color: #c9c9c9;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .searchNum {
   color: #c9c9c9;
   font-size: 28rpx;
+  padding: 0 20rpx;
 }
 
 .search_sug {
   font-size: 28rpx;
+  margin-top: 80rpx;
   color: rgb(111, 111, 111);
-  margin-top: 20rpx;
-  border-top: 1px solid rgb(241, 241, 241);
-  padding: 0 16rpx;
+  border-top: 1rpx solid rgb(241, 241, 241);
+  padding: 0 38rpx;
 }
 
 .search_blue {
@@ -149,4 +195,9 @@
 
 .sug_item {
   margin-left: 18rpx;
+}
+
+.sheetlist {
+  margin-top: 80rpx;
+  border-top: 1rpx solid rgb(241, 241, 241);
 }

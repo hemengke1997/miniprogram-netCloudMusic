@@ -1,0 +1,100 @@
+<view class="black_bg">
+  <nav-bar navbar-need="{{ navbar }}"></nav-bar>
+  <view class="bg" style="background-image:url('{{ songData.al.picUrl }}')">
+  </view>
+  <!-- 音乐内容 -->
+  <view class="song_content" style="top: {{ navbarHeight }}px">
+    <view class="scroller">
+      <!-- 图标 -->
+      <view class="top_logo">
+        <icon class="iconfont icon-wangyiyunyinle1"></icon>
+        <text class="logo_ch">minko音乐</text>
+      </view>
+      <!-- 封面 -->
+      <view class="m-song-wrap">
+        <view class="disc" bindtap="playsong">
+          <view class="m-song-turn" style="background-image: url('{{ bgImgs.blackcircle }}')">
+            <view class="song_light circling {{ !playing ? 'circling_paused' : '' }}" style="background-image: url('{{ bgImgs.whitecircle }}')"></view>
+            <view class="rollwrap">
+              <view class="song_img circling {{ !playing ? 'circling_paused' : '' }}">
+                <image src="{{ songData.al.picUrl }}" mode="widthFix" class="song_cover"></image>
+              </view>
+            </view>
+          </view>
+          <view class="plybtn" style="background-image: url('{{ bgImgs.plybtn }}')" hidden="{{ playing }}"></view>
+          <view class="plytop" style="background-image: url('{{ bgImgs.needle }}')"></view>
+        </view>
+      </view>
+      <!-- 歌词 -->
+      <view class="song_info">
+        <view class="song_lrc">
+          <text class="song_pure song_top" wx:if="{{ false }}">
+            <text>暂无歌词，</text>
+          <text class="helplrc">求歌词</text>
+          </text>
+          <view class="songlrc_scroll">
+            <view class="lrc_inner" style="transform: translateY({{ lyc_translateY }}px)">
+              <block wx:for="{{ lyric }}" wx:key="index">
+                <text id="id{{index}}" class="lrc_item {{ index === lyc_time_index ? 'light' : '' }}">{{ item }}</text>
+              </block>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 查看完整歌词 跳转下载 -->
+      <view class="forlrc">
+        <text class="link_download">查看完整歌词</text>
+      </view>
+      <!-- 分享 -->
+      <view class="share">
+        <button class="share_left" open-type="share" data-title="{{ songData.name }}" data-imageUrl="{{ songData.al.picUrl }}">
+          <text>分享给微信好友</text>
+        </button>
+        <button class="share_right">
+          <icon class="iconfont icon-wangyiyunyinle1"></icon>
+          <text space="ensp"> 下载APP</text>
+        </button>
+      </view>
+      <block wx:if="{{ showSongs }}">
+        <!-- 听这首歌的人也听 -->
+        <view class="moresongs">
+          <text class="simily">喜欢这首歌的人也听</text>
+          <view class="plyall">
+            <icon class="iconfont icon-bofang"></icon>
+            <text class="plyall_ch" space="ensp"> 一键收听</text>
+          </view>
+        </view>
+        <!-- 相似歌曲 -->
+        <view class="simily_ss">
+          <song songs="{{ songs }}"></song>
+        </view>
+      </block>
+      <!-- 精彩评论 -->
+      <view class="comment" wx:if="{{ hotComments.length }}">
+        <text class="cmt_title">精彩评论</text>
+        <view class="comment_item" wx:for="{{ hotComments }}" wx:key="index">
+          <view class="cmt_head">
+            <image class="head_img" src="{{ item.avatarUrl }}"></image>
+          </view>
+          <view class="cmt_info">
+            <view class="cmt_info_top">
+              <view class="user">
+                <text class="nickname">{{ item.nickname }}</text>
+                <text class="cmt_date">{{ item.time }}</text>
+              </view>
+              <view class="like">
+                <text class="like_num">{{ item.likedCount }}</text>
+                <icon class="iconfont icon-zan1"></icon>
+              </view>
+            </view>
+            <view class="cmt_content">{{ item.content }}</view>
+          </view>
+        </view>
+      </view>
+      <!-- 查看更多评论 -->
+      <view class="more_cmt">
+        <text>下载云音乐查看更多精彩评论</text>
+      </view>
+    </view>
+  </view>
+</view>

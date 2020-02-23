@@ -4,8 +4,7 @@ Component({
   properties: {
     navbarNeed: {
       type: Object,
-      value: {},
-      observer: function(newVal, oldVal) {}
+      value: {}
     }
   },
   data: { // 私有数据（对内），可用于模板渲染
@@ -13,7 +12,10 @@ Component({
     statusBarHeight: '',
     showCapsule: false,
     title: '',
-    capsuleData: {}
+    capsuleData: {},
+    bgUrl: '',
+    windowWidth: 0,
+    navClass: 'bg'
   },
   methods: {
     goBack() {
@@ -31,13 +33,15 @@ Component({
       let top = capsuleData.top
       let height = capsuleData.height
       let width = capsuleData.width
+      let windowWidth = systemInfo.windowWidth
       this.setData({
         capsuleData: {
           left: left,
           top: top,
           height: height,
-          width: width
-        }
+          width: width,
+        },
+        windowWidth: windowWidth
       })
     },
     setAllData() {
@@ -45,8 +49,6 @@ Component({
       this.setData({
         navbarHeight: app.globalData.navbarHeight,
         statusBarHeight: app.globalData.statusBarHeight,
-        title: this.data.navbarNeed.title,
-        showCapsule: this.data.navbarNeed.showCapsule
       })
     }
   },
@@ -55,4 +57,16 @@ Component({
     this.computePosition()
     this.setAllData()
   },
+  observers: {
+    'navbarNeed': function(value) {
+      if (Object.keys(value).length) {
+        this.setData({
+          bgUrl: this.data.navbarNeed.bgUrl || '',
+          title: this.data.navbarNeed.title,
+          showCapsule: this.data.navbarNeed.showCapsule,
+          navClass: this.data.navbarNeed.navClass || 'bg'
+        })
+      }
+    }
+  }
 })

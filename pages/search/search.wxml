@@ -1,20 +1,25 @@
 <view class="search">
-  <view class="inputcover">
-    <icon class="iconfont icon-sousuo icon-sousuo-absolute"></icon>
-    <input type="text" name="search" value="{{searchValue}}" class="search_all" placeholder="搜索歌曲" placeholder-class="placeholder_class" focus="true" confirm-type="search" bindinput="inputSearchValue"></input>
-    <icon class="iconfont icon-guanbi" wx:if="{{searchValue}}" bindtap="clearSearchValue"></icon>
+  <view class="input_wrap">
+    <view class="inputcover">
+      <icon class="iconfont icon-sousuo icon-sousuo-absolute"></icon>
+      <input type="text" name="search" value="{{searchValue}}" class="search_all" placeholder="搜索歌曲" placeholder-class="placeholder_class" focus="true" confirm-type="search" bindinput="inputSearchValue" bindconfirm="confirmSearch"></input>
+      <icon class="iconfont icon-guanbi" wx:if="{{searchValue}}" bindtap="clearSearchValue"></icon>
+    </view>
   </view>
-  <view class="history" wx:if="{{searchHistory}}">
+  <!-- 历史记录 -->
+  <view class="history" wx:if="{{ searchHistory.length && !showSongs && !searchValue }}">
     <view class="h_top">
       <text class="h_title">历史记录</text>
-      <icon class="iconfont icon-guanbi-"></icon>
+      <icon class="iconfont icon-guanbi-" bindtap="clearHistory"></icon>
     </view>
-    <!-- 历史记录在后面存储功能完成之后写 -->
+    <view class="history_wrap">
+      <text wx:for="{{ searchHistory }}" wx:key="index" class="history_item"  bindtap="searchSug" data-searchName="{{ item }}">{{ item }}</text>
+    </view>
   </view>
   <!-- 热搜榜 -->
-  <view hidden="{{ searchValue }}">
+  <view hidden="{{ searchValue }}" class="content">
     <text class="hot_title">热搜榜</text>
-    <view class="hot_item" wx:for="{{ hotSongs }}" wx:key="index">
+    <view class="hot_item" wx:for="{{ hotSongs }}" wx:key="index" bindtap="searchSug" data-searchName="{{ item.searchWord }}">
       <text class="num {{ index < 3 ? 'red' : '' }}">{{ index + 1 }}</text>
       <view class="right_part">
         <view class="middle">
@@ -29,11 +34,16 @@
     </view>
   </view>
   <!-- 搜索建议 -->
-  <view class="search_sug" wx:if="{{ searchValue }}">
+  <view class="search_sug" wx:if="{{ searchValue && !showSongs }}">
     <text class="search_blue">搜索“{{ searchValue }}”</text>
-    <view wx:for="{{ searchSug }}" wx:key="index">
+    <text class="noMatch" wx:if="{{ noMatch }}">暂无结果</text>
+    <view wx:for="{{ searchSug }}" wx:key="index" bindtap="searchOne" data-songName="{{ item.keyword }}" wx:if="{{ !noMatch }}">
       <icon class="iconfont icon-sousuo icon-sousuo1"></icon>
       <text class="sug_item">{{ item.keyword }}</text>
     </view>
+  </view>
+  <!-- 搜索出来的歌 -->
+  <view wx:if="{{ showSongs }}" class="sheetlist">
+    <song songs="{{ songs }}"></song>
   </view>
 </view>

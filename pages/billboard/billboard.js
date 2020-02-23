@@ -10,9 +10,13 @@ Page({
     playlist: {},
     navbar: {
       showCapsule: true,
-      title: '榜单'
+      title: '歌单',
+      bgUrl: ''
     },
-    navbarHeight: app.globalData.navbarHeight
+    navbarHeight: app.globalData.navbarHeight,
+    songTotalNumber: 0,
+    playCount: 0,
+    songs: {}
   },
 
   queryBillboard(id) {
@@ -20,73 +24,100 @@ Page({
     wx.request({
       url: baseURL + `playlist/detail?id=${id}`,
       method: 'GET',
-      success: function (res) {
-        console.log(res)
+      success: function(res) {
+        let playlist = res.data.playlist
+        console.log(playlist)
         _this.setData({
-          playlist: res.data.playlist
+          playlist: playlist,
+          songTotalNumber: playlist.trackCount,
+          playCount: _this.transCount(playlist.playCount),
+          "navbar.bgUrl": playlist.coverImgUrl,
+          songs: {
+            playlist: playlist.tracks,
+            showIndex: true
+          }
         })
       }
     })
   },
-  // 分享歌单给微信好友
-  shareToFriend() {
 
+  // 收听量数字转换
+  transCount(count) {
+    let param = {}
+    let k = 10000
+    let size = ['', '万', '亿', '万亿']
+    if (count < k) {
+      param.count = count
+      param.unit = ''
+    } else {
+      let i = Math.floor(Math.log(count) / Math.log(k))
+      param.count = (count / Math.pow(k, i)).toFixed(1)
+      param.unit = size[i]
+    }
+    return param
   },
+
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.queryBillboard(options.id)
-
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function(res) {
+    if (res.from === 'button') {
+      let data = res.target.dataset
+      return {
+        title: `分享${this.data.navbar.title}：${data.title}`,
+        imageUrl: data.imageurl
+      }
 
+    }
   }
 })

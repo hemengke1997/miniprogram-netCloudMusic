@@ -1,0 +1,85 @@
+@import '/assets/font/iconfont.wxss';
+@import '/assets/css/common.wxss';
+
+.song {
+  display: flex;
+  padding: 20rpx 0;
+}
+
+.num {
+  width: 80rpx;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.song_img {
+  width: 90rpx;
+  height: 90rpx;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 4px;
+  margin: 0 14rpx;
+}
+
+.content {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: space-between;
+}
+
+.song_middle {
+  flex: 1 1 auto;
+  width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rpx 0;
+}
+
+.song_name {
+  font-size: 32rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.song_info {
+  display: flex;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.icon-sq {
+  font-size: 32rpx;
+  color: rgb(232, 58, 49);
+  transform: translateY(2rpx);
+}
+
+.icon-sq::before {
+  display: flex;
+}
+
+.singer, .album {
+  color: #ccc;
+  font-size: 24rpx;
+}
+
+.album {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: normal;
+}
+
+.icon-bofang {
+  font-size: 52rpx;
+  color: #9f9f9f;
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+}

@@ -177,7 +177,7 @@
 
 20. #### 2月16号 终于把导航栏做好了 而且跟网易云官方的效果一样  最难的地方是
 
-    ![1581836249759](C:\Users\A\AppData\Roaming\Typora\typora-user-images\1581836249759.png)
+    ![歌单截图](https://github.com/hemengke1997/music_wx/blob/master/images/jietu1.png)
 
     ​     往下滑的时候，顶部的背景图还是固定在那个位置。这里又有坑，微信小程序不兼容clip-path,只能用clip。
 
@@ -230,5 +230,50 @@
 
     效果图
 
-    ![1582302570482](C:\Users\A\AppData\Roaming\Typora\typora-user-images\1582302570482.png)
+    ![播放界面截图](https://github.com/hemengke1997/music_wx/blob/master/images/jietu2.png)
 
+
+
+
+
+#### 项目截图
+
+![首页](https://github.com/hemengke1997/music_wx/blob/master/images/index.png)
+
+
+
+![搜索界面](https://github.com/hemengke1997/music_wx/blob/master/images/search_index.png)
+
+
+
+![搜索结果](https://github.com/hemengke1997/music_wx/blob/master/images/search_result.png)
+
+
+
+![榜单](https://github.com/hemengke1997/music_wx/blob/master/images/bangdan.png)
+
+
+
+![榜单分享](https://github.com/hemengke1997/music_wx/blob/master/images/bangdan_1.png)
+
+
+
+![滚动歌词](https://github.com/hemengke1997/music_wx/blob/master/images/song_1.png)
+
+
+
+![相似歌曲](https://github.com/hemengke1997/music_wx/blob/master/images/song_2.png)
+
+
+
+![歌曲评论](https://github.com/hemengke1997/music_wx/blob/master/images/song_3.png)
+
+
+
+![项目路径](https://github.com/hemengke1997/music_wx/blob/master/images/xiangmu.png)
+
+#### 结语
+
+- 完结撒花了 T>T 。大概跟现在的ios微信小程序的用户体验一样
+- 第一次写一个完整的微信小程序，思路不清晰，最开始有很多网络请求，样式，都没有封装，组件模板用得也不多
+- 体会最深的是封装导航栏， 整体的沉浸模式，解决方案再说一次，内容绝对定位，距离顶部一定的高度，overflow-y:auto，page overflow:hidden

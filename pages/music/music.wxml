@@ -72,7 +72,7 @@
       <!-- 精彩评论 -->
       <view class="comment" wx:if="{{ hotComments.length }}">
         <text class="cmt_title">精彩评论</text>
-        <view class="comment_item" wx:for="{{ hotComments }}" wx:key="index">
+        <view class="comment_item" wx:for="{{ hotComments }}" wx:key="id">
           <view class="cmt_head">
             <image class="head_img" src="{{ item.avatarUrl }}"></image>
           </view>

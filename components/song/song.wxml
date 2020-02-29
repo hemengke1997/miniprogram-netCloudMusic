@@ -1,4 +1,4 @@
-<block wx:for="{{ songData.playlist }}" wx:key="index">
+<block wx:for="{{ songData.playlist }}" wx:key="id">
   <view class="song" bindtap="gotoSong" data-songId="{{ item.id }}">
     <text class="num" wx:if="{{ songData.showIndex }}">{{ index + 1 }}</text>
     <view wx:else class="song_img" style="background-image: url('{{ item.song_img }}')"></view>

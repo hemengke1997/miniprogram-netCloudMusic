@@ -5,7 +5,7 @@
   </view>
   <view class="bangdan">
     <!-- 飙升榜 -->
-    <view class="bsb bd_item" wx:for="{{ bangdan }}" wx:for-index="index" wx:for-item="item" wx:key="index" bindtap="gotoSongs" data-id="{{ item.id }}">
+    <view class="bsb bd_item" wx:for="{{ bangdan }}" wx:for-index="index" wx:for-item="item" wx:key="id" bindtap="gotoSongs" data-id="{{ item.id }}">
       <view class="left_type">
         <image src="{{ item.coverImgUrl }}" class="type_img" mode="widthFix"></image>
         <text class="type_intro">{{ item.updateFrequency }}</text>

@@ -11,7 +11,9 @@ Page({
       url: baseURL + 'toplist/detail',
       method: 'GET',
       success: function(res) {
+        
         let data = res.data.list.slice(0, 4)
+        console.log(data)
         _this.setData({
           bangdan: data
         })
